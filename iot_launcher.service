@@ -1,0 +1,9 @@
+[Unit]
+Description=Python IoTmaxx cloud connector launcher
+
+[Service]
+# Command to execute when the service is started
+ExecStart=/usr/bin/python3 /usr/lib/python3.7/site-packages/iot_launcher.py
+
+[Install]
+WantedBy=multi-user.target
