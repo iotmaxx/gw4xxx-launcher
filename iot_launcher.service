@@ -2,8 +2,11 @@
 Description=Python IoTmaxx cloud connector launcher
 
 [Service]
+Type=simple
 # Command to execute when the service is started
 ExecStart=/usr/bin/python3 /usr/lib/python3.7/site-packages/iot_launcher/iot_launcher.pyc
+Restart=on-failure
+RestartSec=10
 
 [Install]
 WantedBy=multi-user.target
