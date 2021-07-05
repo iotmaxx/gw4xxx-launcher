@@ -1,6 +1,7 @@
 import subprocess
 import json
 from pathlib import Path
+import sys, os
 
 jsonConfigDir = "/config/iot_launcher.d"
 jsonConfigFile = "/config/iot_launcher.json"
@@ -71,7 +72,11 @@ with open(jsonConfigFile, "r") as jfile:
     launcherConfig = json.load(jfile)
 
 if theServices[launcherConfig["launch"]]["application"] != "None":
-    subprocess.run(theServices[launcherConfig["launch"]]["application"])
+    retVal = subprocess.run(theServices[launcherConfig["launch"]]["application"])
+else:
+    retVal = os.EX_OK
+
+sys.exit(retVal)
 
 #for service in theServices:
  #   print(service)
