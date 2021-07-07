@@ -71,7 +71,7 @@ for file in configFiles:
 with open(jsonConfigFile, "r") as jfile:
     launcherConfig = json.load(jfile)
 
-if theServices[launcherConfig["launch"]]["application"] != "None":
+if launcherConfig["launch"] != "None":
     retVal = subprocess.run(theServices[launcherConfig["launch"]]["application"])
 else:
     retVal = os.EX_OK
