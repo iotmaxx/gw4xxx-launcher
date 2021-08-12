@@ -80,4 +80,3 @@ sys.exit(retVal)
 
 #for service in theServices:
  #   print(service)
-
