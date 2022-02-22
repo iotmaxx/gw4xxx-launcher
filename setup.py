@@ -17,6 +17,7 @@ along with this program.  If not, see <http://www.gnu.org/licenses/>.
 """
 from setuptools import setup, find_packages
 
+version = {}
 with open("iot_launcher/version.py") as fp:
     exec(fp.read(), version)
 
