@@ -1,6 +1,6 @@
 """ 
-gw4xxx-launcher - IoTmaxx Gateway Hardware Abstraction Layer
-Copyright (C) 2021 IoTmaxx GmbH
+gw4xxx-launcher - IoTmaxx Gateway Application Launcher
+Copyright (C) 2021-2022 IoTmaxx GmbH
 
 This program is free software: you can redistribute it and/or modify
 it under the terms of the GNU General Public License as published by
@@ -15,18 +15,9 @@ GNU General Public License for more details.
 You should have received a copy of the GNU General Public License
 along with this program.  If not, see <http://www.gnu.org/licenses/>.
 """
-from setuptools import setup, find_packages
+jsonConfigDir = "/config/iot_launcher.d"
+jsonConfigFile = "/config/iot_launcher.json"
 
-with open("iot_launcher/version.py") as fp:
-    exec(fp.read(), version)
-
-setup(
-    name='gw4xxx_flask',
-    version=version['__version__'],
-    url='https://github.com/iotmaxx/gw4xxx-launcher',
-    author='Ralf Glaser',
-    author_email='glaser@iotmaxx.de',
-    description='IoTmaxx gateway application launcher',
-    packages=find_packages(),    
-    install_requires=[],
-)
+launcher_default = {
+    "launch": "FlaskOnHAL"
+}
