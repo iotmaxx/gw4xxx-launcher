@@ -20,7 +20,7 @@ import json
 from pathlib import Path
 import sys, os
 
-import iot_launcher.default_config as defCfg
+import default_config as defCfg
 
 configFiles = Path(defCfg.jsonConfigDir).glob("*.json")
 

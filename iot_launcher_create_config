@@ -4,9 +4,13 @@ import json
 import os.path
 import pathlib
 
+print("iot_launcher: create services dir")
+
 pathlib.Path(defCfg.jsonConfigDir).mkdir(parents=True, exist_ok=True)
 
+
 if not os.path.isfile(defCfg.jsonConfigFile):
+    print("iot_launcher: create config file")
     with open(defCfg.jsonConfigFile,"w") as f:
         f.write(json.dumps(defCfg.launcher_default, indent=4))
         
