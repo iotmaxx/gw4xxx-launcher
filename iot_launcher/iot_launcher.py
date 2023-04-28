@@ -20,23 +20,23 @@ import json
 from pathlib import Path
 import sys, os
 
-import default_config as defCfg
+import iot_launcher.default_config as defCfg
 
-configFiles = Path(defCfg.jsonConfigDir).glob("*.json")
+def launchApplication():
+    configFiles = Path(defCfg.jsonConfigDir).glob("*.json")
 
-theServices = {}
+    theServices = {}
 
-for file in configFiles:
-    with open(file, "r") as jfile:
-        theServices.update(json.load(jfile))
+    for file in configFiles:
+        with open(file, "r") as jfile:
+            theServices.update(json.load(jfile))
 
-with open(defCfg.jsonConfigFile, "r") as jfile:
-    launcherConfig = json.load(jfile)
+    with open(defCfg.jsonConfigFile, "r") as jfile:
+        launcherConfig = json.load(jfile)
 
-if launcherConfig["launch"] != "None":
-    retVal = subprocess.run(theServices[launcherConfig["launch"]]["application"])
-else:
-    retVal = os.EX_OK
-
-sys.exit(retVal)
+    if launcherConfig["launch"] != None:
+        retVal = subprocess.run(theServices[launcherConfig["launch"]]["application"])
+    else:
+        retVal = os.EX_OK
+    return retVal
 
